@@ -28,3 +28,4 @@ dist-ssr
 
 # Ignore pages folder
 src/pages/
+src/route/
