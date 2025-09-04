@@ -23,6 +23,8 @@ import UploadProduct from "../pages/UploadProduct";
 import ProductListPage from "../pages/ProductListPage";
 import ProductDisplayPage from "../pages/ProductDisplayPage";
 import CartMobile from "../pages/CartMobile";
+import CheckoutPage from "../pages/CheckoutPage";
+import Address from "../pages/Address";
 
 const router = createBrowserRouter([
     {
@@ -69,7 +71,10 @@ const router = createBrowserRouter([
                         path : "profile",
                         element : <Profile/>
                     },
-                  
+                    {
+                        path : "address",
+                        element : <Address/>
+                    },
                    
                     {
                         path : 'category',
@@ -102,9 +107,15 @@ const router = createBrowserRouter([
                 path : "product/:product",
                 element : <ProductDisplayPage/>
             },
+
             {
                 path : 'cart',
                 element : <CartMobile/>
+            },
+
+              {
+                path : "checkout",
+                element : <CheckoutPage/>
             },
           
            
