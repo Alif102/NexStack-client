@@ -27,5 +27,5 @@ dist-ssr
 *.sw?
 
 # Ignore pages folder
-src/pages/
-src/route/
+# src/pages/
+# src/route/
