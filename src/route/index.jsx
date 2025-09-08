@@ -25,6 +25,7 @@ import ProductDisplayPage from "../pages/ProductDisplayPage";
 import CartMobile from "../pages/CartMobile";
 import CheckoutPage from "../pages/CheckoutPage";
 import Address from "../pages/Address";
+import MyOrders from "../pages/MyOrders";
 
 const router = createBrowserRouter([
     {
@@ -70,6 +71,10 @@ const router = createBrowserRouter([
                     {
                         path : "profile",
                         element : <Profile/>
+                    },
+                     {
+                        path : "myorders",
+                        element : <MyOrders/>
                     },
                     {
                         path : "address",
