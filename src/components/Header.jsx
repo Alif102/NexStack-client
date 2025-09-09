@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react'
-import logo from '../assets/logo.png'
+import logo from '../assets/NexStack.png'
 import Search from './Search'
 import { Link, useLocation,useNavigate } from 'react-router-dom'
 import { FaRegCircleUser } from "react-icons/fa6";
@@ -11,6 +11,7 @@ import UserMenu from './UserMenu';
 import { DisplayPriceInRupees } from '../utils/DisplayPriceInRupees';
 import { useGlobalContext } from '../provider/GlobalProvider';
 import DisplayCartItem from './DisplayCartItem';
+import { FaSignInAlt } from 'react-icons/fa';
 
 const Header = () => {
     const [ isMobile ] = useMobile()
@@ -122,7 +123,13 @@ const Header = () => {
                                                     
                                                 </div>
                                             ) : (
-                                                <button onClick={redirectToLoginPage} className='text-lg px-2'>Login</button>
+                                                <button
+      onClick={redirectToLoginPage}
+      className="flex items-center gap-2 border  hover:border-blue-700  px-4 py-2 rounded-lg shadow-md transition-all duration-300"
+    >
+      <FaSignInAlt className="text-xl" />
+      <span className="text-lg font-semibold">Login</span>
+    </button>
                                             )
                                         }
                                         <button onClick={()=>setOpenCartSection(true)} className='flex items-center gap-2 bg-green-800 hover:bg-green-700 px-3 py-2 rounded text-white'>
