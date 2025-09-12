@@ -63,34 +63,42 @@ const Home = () => {
 
 
 
-      <div className='container mx-auto px-4 my-2 grid grid-cols-5 md:grid-cols-8 lg:grid-cols-10  gap-2'>
-        {
-          loadingCategory ? (
-            new Array(12).fill(null).map((c, index) => {
-              return (
-                <div key={index + "loadingcategory"} className='bg-white rounded p-4 min-h-36 grid gap-2 shadow animate-pulse'>
-                  <div className='bg-blue-100 min-h-24 rounded'></div>
-                  <div className='bg-blue-100 h-8 rounded'></div>
-                </div>
-              )
-            })
-          ) : (
-            categoryData.map((cat, index) => {
-              return (
-                <div key={cat._id + "displayCategory"} className='w-full h-full' onClick={() => handleRedirectProductListpage(cat._id, cat.name)}>
-                  <div>
-                    <img
-                      src={cat.image}
-                      className='w-full h-full object-scale-down'
-                    />
-                  </div>
-                </div>
-              )
-            })
+   <div className="container mx-auto px-4 my-2 grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 xl:grid-cols-8 gap-4 lg:gap-8">
+  {loadingCategory
+    ? new Array(12).fill(null).map((c, index) => (
+        <div
+          key={index + "loadingcategory"}
+          className="bg-white rounded p-4 min-h-36 grid gap-2 shadow animate-pulse"
+        >
+          <div className="bg-blue-100 min-h-24 rounded"></div>
+          <div className="bg-blue-100 h-8 rounded"></div>
+        </div>
+      ))
+    : categoryData.map((cat) => (
+        <div
+          key={cat._id + "displayCategory"}
+          onClick={() =>
+            handleRedirectProductListpage(cat._id, cat.name)
+          }
+          className="relative w-full h-48 rounded-xl overflow-hidden shadow-lg cursor-pointer group"
+        >
+          {/* Image */}
+          <img
+            src={cat.image}
+            alt={cat.name}
+            className="w-full h-full object-cover transform transition-transform duration-500 group-hover:scale-110"
+          />
 
-          )
-        }
-      </div>
+          {/* Overlay with name */}
+          <div className="absolute inset-0 bg-black/40 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-500">
+            <h1 className="text-white text-lg font-semibold text-center">
+              {cat.name}
+            </h1>
+          </div>
+        </div>
+      ))}
+</div>
+
 
       {/***display category product */}
       {
