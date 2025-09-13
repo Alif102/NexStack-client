@@ -7,6 +7,7 @@ import { useNavigate } from 'react-router-dom'
 import CategoryWiseProductDisplay from '../components/CategoryWiseProductDisplay'
 // import HeaderSlider from '../components/HeaderSlider'
 import Banner from '../components/Banner'
+import NewsLetter from '../components/NewsLetter'
 
 const Home = () => {
   const loadingCategory = useSelector(state => state.product.loadingCategory)
@@ -112,6 +113,10 @@ const Home = () => {
           )
         })
       }
+
+      <div>
+        <NewsLetter/>
+      </div>
 
 
 
