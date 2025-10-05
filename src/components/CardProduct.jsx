@@ -17,12 +17,14 @@ const CardProduct = ({data}) => {
   
   return (
     <Link to={url} className='border py-2 lg:p-4 grid gap-1 lg:gap-3 min-w-36 lg:min-w-52 rounded cursor-pointer bg-white' >
-      <div className='min-h-20 w-full max-h-24 lg:max-h-32 rounded overflow-hidden'>
-            <img 
-                src={data.image[0]}
-                className='w-full h-full object-scale-down lg:scale-125'
-            />
-      </div>
+     <div className='min-h-20 w-full max-h-24 lg:max-h-32 rounded overflow-hidden group'>
+  <img 
+    src={data.image[0]}
+    className='w-full h-full object-scale-down lg:scale-125 transform transition-transform duration-500 ease-in-out group-hover:scale-110 group-hover:-translate-y-1'
+    alt="thumbnail"
+  />
+</div>
+
       <div className='flex items-center gap-1'>
         <div className='rounded text-xs w-fit p-[1px] px-2 text-green-600 bg-green-50'>
               10 min 

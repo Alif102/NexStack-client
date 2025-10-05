@@ -69,56 +69,85 @@ const Login = () => {
 
     }
     return (
-        <section className='w-full container mx-auto px-2'>
-            <div className='bg-white my-4 w-full max-w-lg mx-auto rounded p-7'>
+       <section className='w-full container mx-auto px-2'>
+  <div className='bg-white my-8 w-full max-w-5xl mx-auto rounded-lg p-6 md:p-10 grid md:grid-cols-2 gap-8'>
 
-                <form className='grid gap-4 py-4' onSubmit={handleSubmit}>
-                    <div className='grid gap-1'>
-                        <label htmlFor='email'>Email :</label>
-                        <input
-                            type='email'
-                            id='email'
-                            className='bg-blue-50 p-2 border rounded outline-none focus:border-primary-200'
-                            name='email'
-                            value={data.email}
-                            onChange={handleChange}
-                            placeholder='Enter your email'
-                        />
-                    </div>
-                    <div className='grid gap-1'>
-                        <label htmlFor='password'>Password :</label>
-                        <div className='bg-blue-50 p-2 border rounded flex items-center focus-within:border-primary-200'>
-                            <input
-                                type={showPassword ? "text" : "password"}
-                                id='password'
-                                className='w-full outline-none'
-                                name='password'
-                                value={data.password}
-                                onChange={handleChange}
-                                placeholder='Enter your password'
-                            />
-                            <div onClick={() => setShowPassword(preve => !preve)} className='cursor-pointer'>
-                                {
-                                    showPassword ? (
-                                        <FaRegEye />
-                                    ) : (
-                                        <FaRegEyeSlash />
-                                    )
-                                }
-                            </div>
-                        </div>
-                        <Link to={"/forgot-password"} className='block ml-auto hover:text-primary-200'>Forgot password ?</Link>
-                    </div>
-    
-                    <button disabled={!valideValue} className={` ${valideValue ? "bg-green-800 hover:bg-green-700" : "bg-gray-500" }    text-white py-2 rounded font-semibold my-3 tracking-wide`}>Login</button>
+    {/* === Login Form === */}
+    <div>
+      <h2 className='text-2xl font-semibold mb-4 text-center md:text-left'>Login</h2>
+      <form className='grid gap-4 py-4' onSubmit={handleSubmit}>
+        <div className='grid gap-1'>
+          <label htmlFor='email'>Email :</label>
+          <input
+            type='email'
+            id='email'
+            className='bg-blue-50 p-2 border rounded outline-none focus:border-primary-200'
+            name='email'
+            value={data.email}
+            onChange={handleChange}
+            placeholder='Enter your email'
+          />
+        </div>
 
-                </form>
-
-                <p>
-                    Don't have account? <Link to={"/register"} className='font-semibold text-green-700 hover:text-green-800'>Register</Link>
-                </p>
+        <div className='grid gap-1'>
+          <label htmlFor='password'>Password :</label>
+          <div className='bg-blue-50 p-2 border rounded flex items-center focus-within:border-primary-200'>
+            <input
+              type={showPassword ? "text" : "password"}
+              id='password'
+              className='w-full outline-none'
+              name='password'
+              value={data.password}
+              onChange={handleChange}
+              placeholder='Enter your password'
+            />
+            <div onClick={() => setShowPassword(preve => !preve)} className='cursor-pointer'>
+              {showPassword ? <FaRegEye /> : <FaRegEyeSlash />}
             </div>
-        </section>
+          </div>
+          <Link to={"/forgot-password"} className='block ml-auto hover:text-primary-200'>
+            Forgot password ?
+          </Link>
+        </div>
+
+        <button
+          disabled={!valideValue}
+          className={`${valideValue ? "bg-green-800 hover:bg-green-700" : "bg-gray-500"} text-white py-2 rounded font-semibold my-3 tracking-wide`}
+        >
+          Login
+        </button>
+      </form>
+
+      <p className='text-center md:text-left'>
+        Don't have an account?{" "}
+        <Link to={"/register"} className='font-semibold text-green-700 hover:text-green-800'>
+          Register
+        </Link>
+      </p>
+    </div>
+
+    {/* === Test Login Info (Side Panel) === */}
+    <div className='bg-gray-50 border rounded p-6 flex flex-col justify-center'>
+      <h3 className='font-semibold mb-3 text-gray-700 text-lg'>Test Login Information</h3>
+
+      <div className='space-y-4 text-sm'>
+        <div className='bg-white p-3 rounded border'>
+          <p className='font-medium text-green-700'>Admin</p>
+          <p>Email: <span className='font-mono text-gray-700'>alifahmed102@gmail.com</span></p>
+          <p>Password: <span className='font-mono text-gray-700'>admin123</span></p>
+        </div>
+
+        <div className='bg-white p-3 rounded border'>
+          <p className='font-medium text-green-700'>User</p>
+          <p>Email: <span className='font-mono text-gray-700'>user1@gmail.com</span></p>
+          <p>Password: <span className='font-mono text-gray-700'>123456</span></p>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
     )
 }
 

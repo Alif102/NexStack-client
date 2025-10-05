@@ -85,7 +85,7 @@ function App() {
 
   const adminCreds = {
     email: 'alifahmed102@gmail.com',
-    password: '1111111'
+    password: 'admin123'
   }
 
   const userCreds = {
